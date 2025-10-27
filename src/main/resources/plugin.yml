@@ -1,0 +1,24 @@
+name: FFAPlugin
+version: 1.0.0
+main: com.yourname.ffa.FFAPlugin
+api-version: 1.8
+author: YourName
+description: Free For All PvP Plugin
+
+commands:
+  ffa:
+    description: FFA main command
+    usage: /ffa <join|leave|stats|setspawn|setlobby|enable|disable>
+    permission: ffa.use
+  ffaadmin:
+    description: FFA admin command
+    usage: /ffaadmin <reload|setkillstreak>
+    permission: ffa.admin
+
+permissions:
+  ffa.use:
+    description: Allows use of basic FFA commands
+    default: true
+  ffa.admin:
+    description: Allows use of admin commands
+    default: op

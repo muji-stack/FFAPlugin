@@ -1,0 +1,107 @@
+# FFA Plugin Configuration
+
+# アリーナ設定
+arena:
+  enabled: false
+  world: world
+  # スポーン地点（複数設定可能）
+  spawns: []
+  # ロビー地点
+  lobby:
+    world: world
+    x: 0
+    y: 64
+    z: 0
+    yaw: 0
+    pitch: 0
+
+# キット設定
+kit:
+  # 防具 (DIAMOND, IRON, GOLD, CHAINMAIL, LEATHER)
+  helmet: DIAMOND_HELMET
+  chestplate: DIAMOND_CHESTPLATE
+  leggings: DIAMOND_LEGGINGS
+  boots: DIAMOND_BOOTS
+  
+  # インベントリアイテム
+  items:
+    - type: DIAMOND_SWORD
+      slot: 0
+      enchantments:
+        - DAMAGE_ALL:2
+    - type: BOW
+      slot: 1
+      enchantments:
+        - ARROW_DAMAGE:1
+    - type: ARROW
+      slot: 9
+      amount: 64
+    - type: GOLDEN_APPLE
+      slot: 2
+      amount: 5
+    - type: COOKED_BEEF
+      slot: 3
+      amount: 32
+
+# リスポーン設定
+respawn:
+  delay: 3 # 秒
+  health: 20.0
+  food: 20
+  clear-inventory: true
+
+# キルストリーク設定
+killstreaks:
+  enabled: true
+  rewards:
+    3:
+      message: "&e3キル達成！金リンゴ+2を獲得！"
+      items:
+        - type: GOLDEN_APPLE
+          amount: 2
+    5:
+      message: "&65キル達成！ダイヤモンド+3を獲得！"
+      items:
+        - type: DIAMOND
+          amount: 3
+    10:
+      message: "&c10キル達成！エンチャントされた金リンゴ+1を獲得！"
+      items:
+        - type: GOLDEN_APPLE
+          amount: 1
+          data: 1 # Enchanted Golden Apple
+
+# スコアボード設定
+scoreboard:
+  enabled: true
+  title: "&c&lFFA PvP"
+  update-interval: 20 # ticks (1秒)
+
+# メッセージ設定
+messages:
+  join: "&a{player}がアリーナに参加しました！"
+  leave: "&c{player}がアリーナから退出しました！"
+  kill: "&e{killer} &7が &e{victim} &7を倒した！"
+  death: "&c死亡しました。 {delay}秒後にリスポーンします..."
+  not-in-arena: "&cアリーナに参加していません！"
+  arena-disabled: "&cアリーナは現在無効です！"
+  arena-enabled: "&aアリーナが有効化されました！"
+  arena-disabled-admin: "&cアリーナが無効化されました！"
+  spawn-set: "&aスポーン地点を設定しました！"
+  lobby-set: "&aロビー地点を設定しました！"
+  stats-header: "&6===== &eあなたの統計 &6====="
+  stats-kills: "&eキル数: &a{kills}"
+  stats-deaths: "&e死亡数: &c{deaths}"
+  stats-kd: "&eK/D比: &b{kd}"
+  stats-killstreak: "&e現在の連続キル: &6{streak}"
+  stats-best-streak: "&e最高連続キル: &6{best}"
+
+# データベース設定
+database:
+  type: sqlite # sqlite or mysql
+  mysql:
+    host: localhost
+    port: 3306
+    database: minecraft
+    username: root
+    password: password
